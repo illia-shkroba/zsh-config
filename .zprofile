@@ -18,8 +18,8 @@ export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
+export PATH="$HOME/.local/bin/scripts:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.scripts:$PATH"
 
 export BROWSER='brave'
 export EDITOR='nvim'
