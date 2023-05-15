@@ -1,7 +1,7 @@
-export XDG_CACHE_HOME=~/.cache
-export XDG_CONFIG_HOME=~/.config
-export XDG_DATA_HOME=~/.local/share
-export XDG_STATE_HOME=~/.local/state
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
 
 export ANSIBLE_HOME="$XDG_CACHE_HOME/ansible"
 export AZURE_CONFIG_DIR="$XDG_DATA_HOME/azure"
@@ -25,7 +25,6 @@ export BROWSER='brave'
 export EDITOR='nvim'
 export TERMINAL='st'
 
-if [ "$(tty)" = '/dev/tty1' ]
-then
+if [ "$(tty)" = '/dev/tty1' ]; then
   startx
 fi
