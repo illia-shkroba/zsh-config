@@ -12,7 +12,8 @@ SAVEHIST=10000000
 HISTFILE="$XDG_CACHE_HOME/zsh/history"
 
 # Load aliases and shortcuts if existent.
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
+aliasrc="${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliasrc"
+[ -f "$aliasrc" ] && source "$aliasrc"
 
 # Basic auto/tab complete:
 autoload -U compinit
