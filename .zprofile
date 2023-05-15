@@ -15,6 +15,7 @@ export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
 export R_LIBS_USER="$XDG_DATA_HOME/R"
 export STACK_ROOT="$XDG_CONFIG_HOME/stack"
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
+export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 export PATH="$HOME/.local/bin:$PATH"
