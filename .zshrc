@@ -39,6 +39,10 @@ bindkey '^[[P' delete-char
 bindkey '^r' history-incremental-search-backward
 bindkey '^s' history-incremental-search-forward
 
+# Use ^n ^p
+bindkey '^n' down-history
+bindkey '^p' up-history
+
 # Use ^u ^y
 bindkey -M viins '^y' yank
 bindkey -M viins '^u' kill-whole-line
