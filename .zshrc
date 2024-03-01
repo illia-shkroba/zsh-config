@@ -60,6 +60,8 @@ source /usr/share/fzf/key-bindings.zsh 2> /dev/null
 source /usr/share/fzf/completion.zsh 2> /dev/null
 # Set fzf cd binding.
 bindkey '^f' fzf-cd-widget
+# Confirm autocompletion in insert mode.
+bindkey '^k' end-of-line
 
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2> /dev/null
