@@ -28,7 +28,7 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export PATH="$HOME/.local/bin/scripts:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
-export BROWSER='brave'
+export BROWSER='qutebrowser'
 export EDITOR='nvim'
 export TERMINAL='st'
 
