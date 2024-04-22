@@ -8,6 +8,7 @@ export ANSIBLE_HOME="$XDG_CACHE_HOME/ansible"
 export AZURE_CONFIG_DIR="$XDG_DATA_HOME/azure"
 export CABAL_CONFIG="$XDG_CONFIG_HOME/cabal/config"
 export CABAL_DIR="$XDG_DATA_HOME/cabal"
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 export GHCUP_USE_XDG_DIRS=y
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
