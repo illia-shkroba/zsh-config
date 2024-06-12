@@ -1,9 +1,9 @@
+alias config='vim ~/.config/nvim/lua/options.lua'
 alias hoogle='hoogle --database ~/.cache/hoogle/database.hoo'
 alias ipython='ipython --no-banner'
-alias l='ls -CF'
-alias la='ls -A'
-alias ll='ls -alF'
+alias l='ls -lF'
+alias ll='ls -lAF'
 alias tmux='tmux -u'
 alias trr='transmission-remote'
 alias trs='transmission-show'
-alias vim=nvim
+alias vim='nvim'
