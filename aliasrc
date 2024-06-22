@@ -7,3 +7,16 @@ alias tmux='tmux -u'
 alias trr='transmission-remote'
 alias trs='transmission-show'
 alias vim='nvim'
+
+# enable color support
+if [ -x /usr/bin/dircolors ]; then
+  alias ls='ls --color=auto'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
+fi
+
+c() {
+  cd "$@" || return
+  ls -lF --color=auto
+}
