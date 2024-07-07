@@ -5,7 +5,6 @@ setopt autocd   # Automatically cd into typed directory.
 stty stop undef # Disable ctrl-s to freeze terminal.
 setopt interactive_comments
 setopt shwordsplit # sh standard word splitting
-setopt nohist_save_by_copy # Allow to use links to history
 
 # History in cache directory:
 HISTSIZE=10000000
