@@ -58,6 +58,7 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 # Load fzf autocompletion.
 source /usr/share/fzf/key-bindings.zsh 2> /dev/null
 source /usr/share/fzf/completion.zsh 2> /dev/null
+source /usr/share/zsh/plugins/fzf-tab*/fzf-tab.plugin.zsh 2> /dev/null
 # Set fzf cd binding.
 bindkey '^f' fzf-cd-widget
 # Confirm autocompletion in insert mode.
