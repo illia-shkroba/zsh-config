@@ -8,6 +8,7 @@ alias sxiv='nsxiv'
 alias tmux='tmux -u'
 alias trr='transmission-remote'
 alias trs='transmission-show'
+alias v='nvim'
 alias vim='nvim'
 alias ytfzf='ytfzf --detach --show-thumbnails --async-thumbnails'
 
