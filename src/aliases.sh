@@ -1,3 +1,5 @@
+#!/usr/bin/env sh
+
 alias config='vim ~/.config/nvim/lua/options.lua'
 alias d='docker'
 alias g='git'
