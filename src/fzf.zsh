@@ -7,7 +7,7 @@ source "$SCRIPT_DIR/aliases.sh"
 
 fzf-c-widget() {
   setopt localoptions pipefail no_aliases 2> /dev/null
-  local dir="$(find -mindepth 1 -maxdepth 1 -type d | fzf --tmux)"
+  local dir="$(find -L -mindepth 1 -maxdepth 1 -type d | fzf --tmux)"
   if [[ -z "$dir" ]]; then
     zle redisplay
     return 0
