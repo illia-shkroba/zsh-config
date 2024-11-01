@@ -1,10 +1,13 @@
 # Enable colors and change prompt:
 autoload -U colors && colors # Load colors
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
-setopt autocd   # Automatically cd into typed directory.
 stty stop undef # Disable ctrl-s to freeze terminal.
+
+# Options:
+setopt append_history
+setopt autocd
 setopt interactive_comments
-setopt shwordsplit # sh standard word splitting
+setopt shwordsplit
 
 # History in cache directory:
 HISTSIZE=10000000
