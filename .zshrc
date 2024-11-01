@@ -31,11 +31,8 @@ source "$ZDOTDIR/src/bindings.zsh"
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh 2> /dev/null
 
 # Load fzf autocompletion.
-source /usr/share/fzf/key-bindings.zsh 2> /dev/null
 source /usr/share/fzf/completion.zsh 2> /dev/null
 source /usr/share/zsh/plugins/fzf-tab*/fzf-tab.plugin.zsh 2> /dev/null
-# Set fzf cd binding.
-bindkey '^f' fzf-cd-widget
 
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2> /dev/null

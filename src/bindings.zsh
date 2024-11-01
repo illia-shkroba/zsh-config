@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+SCRIPT_DIR="$(dirname "$(readlink -e "$0")")"
+
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
@@ -28,3 +30,8 @@ bindkey '^k' end-of-line
 autoload edit-command-line
 zle -N edit-command-line
 bindkey '^e' edit-command-line
+
+# Set fzf bindings.
+source "$SCRIPT_DIR/fzf.zsh"
+bindkey '^f' fzf-c-widget
+bindkey '^g' fzf-cd-widget
