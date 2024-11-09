@@ -7,7 +7,10 @@ source "$SCRIPT_DIR/aliases.sh"
 
 fzf-c-widget() {
   setopt localoptions pipefail no_aliases 2> /dev/null
-  local dir="$(find -L -mindepth 1 -maxdepth 1 -type d | fzf --tmux)"
+  local dir="$(
+    FZF_DEFAULT_COMMAND=${FZF_CTRL_F_COMMAND:-} \
+    FZF_DEFAULT_OPTS=$(__fzf_defaults "--reverse --walker=dir,follow,hidden --scheme=path" "${FZF_CTRL_F_OPTS-} +m") \
+    FZF_DEFAULT_OPTS_FILE='' $(__fzfcmd) < /dev/tty)"
   if [[ -z "$dir" ]]; then
     zle redisplay
     return 0
@@ -20,5 +23,10 @@ fzf-c-widget() {
   zle reset-prompt
   return $ret
 }
+
+FZF_CTRL_F_COMMAND='find -L -mindepth 1 -maxdepth 1 -type d'
+FZF_CTRL_F_OPTS='--preview "ls -ldF --color=always {}"'
+FZF_CTRL_T_COMMAND='find -L -mindepth 1 -maxdepth 1 ! -type d'
+FZF_CTRL_T_OPTS='--preview "bat -n --color=always {}"'
 
 zle -N fzf-c-widget
