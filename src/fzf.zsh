@@ -25,10 +25,13 @@ fzf-c-widget() {
 }
 
 FZF_CTRL_F_COMMAND='find -L -mindepth 1 -maxdepth 1 -type d'
-FZF_CTRL_F_OPTS='--preview "ls -ldF --color=always {}"'
+if builtin type eza > /dev/null; then
+  FZF_CTRL_F_OPTS='--preview "eza -ldgF --color=always {}"'
+else
+  FZF_CTRL_F_OPTS='--preview "ls -ldF --color=always {}"'
+fi
 FZF_CTRL_T_COMMAND='find -L -mindepth 1 -maxdepth 1 ! -type d'
-if builtin type fzf-preview.sh > /dev/null
-then
+if builtin type fzf-preview.sh > /dev/null; then
   FZF_CTRL_T_OPTS='--preview "fzf-preview.sh {}"'
 else
   FZF_CTRL_T_OPTS='--preview "bat -n --color=always {}"'

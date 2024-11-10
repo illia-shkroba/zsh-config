@@ -1,14 +1,34 @@
 #!/usr/bin/env sh
 
+if builtin type eza > /dev/null; then
+  c_ls() {
+    eza -lgF --color=auto "$@"
+  }
+else
+  c_ls() {
+    ls -lF --color=auto "$@"
+  }
+fi
+
+c() {
+  cd "$@" || return
+  c_ls
+}
+
+tmuxc() {
+  tmux set-buffer "$@" "$(cat)"
+}
+
 alias config='vim ~/.config/nvim/lua/options.lua'
 alias d='docker'
 alias g='git'
 alias hoogle='hoogle --database ~/.cache/hoogle/database.hoo'
 alias ipython='ipython --no-banner'
-alias l='ls -lF'
-alias ll='ls -lAF'
+alias l='c_ls'
+alias ll='c_ls -A'
 alias m='man'
 alias sxiv='nsxiv'
+alias t='tmux -u'
 alias tmux='tmux -u'
 alias trr='transmission-remote'
 alias trs='transmission-show'
@@ -23,12 +43,3 @@ if [ -x /usr/bin/dircolors ]; then
   alias fgrep='fgrep --color=auto'
   alias egrep='egrep --color=auto'
 fi
-
-c() {
-  cd "$@" || return
-  ls -lF --color=auto
-}
-
-tmuxc() {
-  tmux set-buffer "$@" "$(cat)"
-}
