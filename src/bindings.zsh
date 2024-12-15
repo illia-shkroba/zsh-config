@@ -2,24 +2,22 @@
 
 SCRIPT_DIR="$(dirname "$(readlink -e "$0")")"
 
-# Use vim keys in tab complete menu:
+# menuselect
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -v '^?' backward-delete-char
 
-bindkey '^[[P' delete-char
+# normal
+bindkey -M vicmd '=' which-command
+bindkey -M vicmd '?' run-help
+bindkey -M vicmd 'U' redo
 
-# Use ^r
-bindkey '^r' history-incremental-search-backward
-bindkey '^s' history-incremental-search-forward
-
-# Use ^n ^p
-bindkey '^n' down-history
-bindkey '^p' up-history
-
-# Use ^u ^y
+# insert
+bindkey -M viins '^r' history-incremental-search-backward
+bindkey -M viins '^s' history-incremental-search-forward
+bindkey -M viins '^n' down-history
+bindkey -M viins '^p' up-history
 bindkey -M viins '^y' yank
 bindkey -M viins '^u' kill-whole-line
 
