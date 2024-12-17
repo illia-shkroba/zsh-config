@@ -30,8 +30,21 @@ export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
-export PATH="$HOME/.local/bin/scripts:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
+prepend_path() {
+  case ":$PATH:" in
+    *:"$1":*) ;;
+    *)
+      PATH="$1${PATH:+:$PATH}"
+      ;;
+  esac
+}
+
+prepend_path "$HOME/.local/bin/scripts"
+prepend_path "$HOME/.local/bin"
+
+export PATH
+
+unset -f prepend_path
 
 export BROWSER='qutebrowser'
 export EDITOR='nvim'
