@@ -24,6 +24,8 @@ fzf-c-widget() {
   return $ret
 }
 
+zle -N fzf-c-widget
+
 FZF_CTRL_F_COMMAND='find -L -mindepth 1 -maxdepth 1 -type d'
 if builtin type eza > /dev/null; then
   FZF_CTRL_F_OPTS='--preview "eza -ldgF --color=always {}"'
@@ -37,4 +39,16 @@ else
   FZF_CTRL_T_OPTS='--preview "bat -n --color=always {}"'
 fi
 
-zle -N fzf-c-widget
+c-up-widget() {
+  zle push-line # Clear buffer. Auto-restored on next prompt.
+  BUFFER="c .."
+  zle accept-line
+  local ret=$?
+  zle reset-prompt
+  return $ret
+}
+
+zle -N c-up-widget
+
+autoload edit-command-line
+zle -N edit-command-line
