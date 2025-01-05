@@ -19,6 +19,14 @@ tmuxc() {
   tmux set-buffer "$@" "$(cat)"
 }
 
+v() {
+  if [ -f 'Session.vim' ]; then
+    nvim -S
+  else
+    nvim
+  fi
+}
+
 alias config='vim ~/.config/nvim/lua/options.lua'
 alias d='docker'
 alias g='git'
@@ -33,7 +41,6 @@ alias t='tmux -u'
 alias tmux='tmux -u'
 alias trr='transmission-remote'
 alias trs='transmission-show'
-alias v='nvim'
 alias vim='nvim'
 alias ytfzf='ytfzf --detach --show-thumbnails --async-thumbnails'
 
