@@ -11,8 +11,8 @@ bindkey -M menuselect 'l' vi-forward-char
 
 # normal
 bindkey -M vicmd '=' which-command
-bindkey -M vicmd '?' run-help
 bindkey -M vicmd 'U' redo
+bindkey -M vicmd '^_' run-help
 bindkey -M vicmd '^e' edit-command-line
 bindkey -M vicmd '^f' fzf-c-widget
 bindkey -M vicmd '^g' fzf-cd-widget
@@ -21,6 +21,7 @@ bindkey -M vicmd '^o' c-up-widget
 bindkey -M vicmd '^s' git-status-widget
 
 # insert
+bindkey -M viins '^_' run-help
 bindkey -M viins '^e' edit-command-line
 bindkey -M viins '^f' fzf-c-widget
 bindkey -M viins '^g' fzf-cd-widget
