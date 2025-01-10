@@ -39,16 +39,26 @@ else
   FZF_CTRL_T_OPTS='--preview "bat -n --color=always {}"'
 fi
 
-c-up-widget() {
+command-widget() {
   zle push-line # Clear buffer. Auto-restored on next prompt.
-  BUFFER="c .."
+  BUFFER="$*"
   zle accept-line
   local ret=$?
   zle reset-prompt
   return $ret
 }
 
+c-up-widget() {
+  command-widget "c .."
+}
+
 zle -N c-up-widget
+
+git-status-widget() {
+  command-widget "git status"
+}
+
+zle -N git-status-widget
 
 autoload edit-command-line
 zle -N edit-command-line
