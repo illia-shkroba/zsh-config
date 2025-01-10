@@ -27,7 +27,6 @@ bindkey -M viins '^k' end-of-line
 bindkey -M viins '^n' down-history
 bindkey -M viins '^o' c-up-widget
 bindkey -M viins '^p' up-history
-bindkey -M viins '^r' history-incremental-search-backward
 bindkey -M viins '^s' history-incremental-search-forward
 bindkey -M viins '^u' kill-whole-line
 bindkey -M viins '^y' yank
