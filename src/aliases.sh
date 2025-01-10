@@ -21,9 +21,9 @@ tmuxc() {
 
 v() {
   if [ -f 'Session.vim' ]; then
-    nvim -S
+    nvim -S 'Session.vim' "$@"
   else
-    nvim
+    nvim "$@"
   fi
 }
 
