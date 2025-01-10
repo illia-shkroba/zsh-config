@@ -21,9 +21,9 @@ tmuxc() {
 
 v() {
   if [ -f 'Session.vim' ]; then
-    nvim -S 'Session.vim' "$@"
+    nvim --listen "$XDG_CACHE_HOME/nvim/server.pipe" -S 'Session.vim' "$@"
   else
-    nvim "$@"
+    nvim --listen "$XDG_CACHE_HOME/nvim/server.pipe" "$@"
   fi
 }
 
