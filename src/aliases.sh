@@ -27,6 +27,37 @@ v() {
   fi
 }
 
+aliascp() {
+  xclip -selection clipboard << 'EOF'
+c_ls() {
+  ls -lF --color=auto "$@"
+}
+
+c() {
+  cd "$@" || return
+  c_ls
+}
+
+v() {
+  if type nvim > /dev/null; then
+    nvim "$@"
+  elif type vim > /dev/null; then
+    vim "$@"
+  elif type vi > /dev/null; then
+    vi "$@"
+  else
+    less "$@"
+  fi
+}
+
+alias d='docker'
+alias g='git'
+alias l='c_ls'
+alias ll='c_ls -A'
+alias m='man'
+EOF
+}
+
 alias config='vim ~/.config/nvim/lua/options.lua'
 alias d='docker'
 alias g='git'
@@ -46,7 +77,6 @@ alias ytfzf='ytfzf --detach --show-thumbnails --async-thumbnails'
 
 # enable color support
 if [ -x /usr/bin/dircolors ]; then
-  alias ls='ls --color=auto'
   alias grep='grep --color=auto'
   alias fgrep='fgrep --color=auto'
   alias egrep='egrep --color=auto'
