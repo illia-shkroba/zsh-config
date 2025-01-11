@@ -5,7 +5,7 @@ SCRIPT_DIR="$(dirname "$(readlink -e "$0")")"
 source /usr/share/fzf/key-bindings.zsh 2> /dev/null
 source "$SCRIPT_DIR/aliases.sh"
 
-FZF_DEFAULT_OPTS='--bind ctrl-s:jump,ctrl-k:accept,ctrl-v:"execute(nvim {})"'
+FZF_DEFAULT_OPTS='--bind ctrl-s:jump,ctrl-k:accept,ctrl-v:"execute(nvim --server '"$XDG_CACHE_HOME/nvim/server.pipe"' --remote-tab \"$(realpath {})\")"'
 
 fzf-c-widget() {
   setopt localoptions pipefail no_aliases 2> /dev/null
