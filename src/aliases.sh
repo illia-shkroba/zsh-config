@@ -27,6 +27,13 @@ v() {
   fi
 }
 
+vs() {
+  while [ "$#" -gt 0 ]; do
+    nvim --server "$XDG_CACHE_HOME/nvim/server.pipe" --remote-tab "$(realpath "$1")"
+    shift
+  done
+}
+
 aliascp() {
   xclip -selection clipboard << 'EOF'
 c_ls() {
