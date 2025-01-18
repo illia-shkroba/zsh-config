@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env zsh
 
 if builtin type eza > /dev/null; then
   c_ls() {
@@ -28,10 +28,12 @@ v() {
 }
 
 vs() {
+  paths=()
   while [ "$#" -gt 0 ]; do
-    nvim --server "$XDG_CACHE_HOME/nvim/server.pipe" --remote-tab "$(realpath "$1")"
+    paths+=("$(realpath "$1")")
     shift
   done
+  nvim --server "$XDG_CACHE_HOME/nvim/server.pipe" --remote-tab "${paths[@]}"
 }
 
 aliascp() {
