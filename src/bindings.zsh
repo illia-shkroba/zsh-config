@@ -18,7 +18,7 @@ bindkey -M vicmd '^f' fzf-c-widget
 bindkey -M vicmd '^g' fzf-cd-widget
 bindkey -M vicmd '^k' end-of-line
 bindkey -M vicmd '^o' c-up-widget
-bindkey -M vicmd '^s' git-status-widget
+bindkey -M vicmd '^s' status-widget
 
 # insert
 bindkey -M viins '^_' run-help
@@ -29,6 +29,6 @@ bindkey -M viins '^k' end-of-line
 bindkey -M viins '^n' down-history
 bindkey -M viins '^o' c-up-widget
 bindkey -M viins '^p' up-history
-bindkey -M viins '^s' git-status-widget
+bindkey -M viins '^s' status-widget
 bindkey -M viins '^u' kill-whole-line
 bindkey -M viins '^y' yank

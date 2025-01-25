@@ -54,11 +54,11 @@ c-up-widget() {
 
 zle -N c-up-widget
 
-git-status-widget() {
-  command-widget "git status"
+status-widget() {
+  command-widget "if git rev-parse --is-inside-git-dir > /dev/null 2>&1; then git status; else c_ls -A; fi"
 }
 
-zle -N git-status-widget
+zle -N status-widget
 
 autoload edit-command-line
 zle -N edit-command-line
