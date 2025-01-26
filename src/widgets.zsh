@@ -54,6 +54,12 @@ c-up-widget() {
 
 zle -N c-up-widget
 
+c-last-widget() {
+  command-widget "c -"
+}
+
+zle -N c-last-widget
+
 status-widget() {
   command-widget "if git rev-parse --is-inside-git-dir > /dev/null 2>&1; then git status; else c_ls -A; fi"
 }
