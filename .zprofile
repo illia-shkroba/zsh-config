@@ -28,6 +28,7 @@ export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export R_LIBS_USER="$XDG_DATA_HOME/R"
 export SQLITE_HISTORY="$XDG_CACHE_HOME/sqlite_history"
 export STACK_ROOT="$XDG_CONFIG_HOME/stack"
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
 
