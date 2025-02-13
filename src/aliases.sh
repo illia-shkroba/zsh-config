@@ -20,11 +20,7 @@ tmuxc() {
 }
 
 v() {
-  if [ -f 'Session.vim' ]; then
-    nvim --listen "$XDG_CACHE_HOME/nvim/server.pipe" -S 'Session.vim' "$@"
-  else
-    nvim --listen "$XDG_CACHE_HOME/nvim/server.pipe" "$@"
-  fi
+  nvim --listen "$XDG_CACHE_HOME/nvim/server.pipe" "$@"
 }
 
 vs() {
