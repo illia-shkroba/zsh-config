@@ -43,3 +43,4 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.pl
 fastfetch
 
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
