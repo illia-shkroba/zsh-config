@@ -66,5 +66,11 @@ status-widget() {
 
 zle -N status-widget
 
+zi-widget() {
+  command-widget "zi"
+}
+
+zle -N zi-widget
+
 autoload edit-command-line
 zle -N edit-command-line

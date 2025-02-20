@@ -20,6 +20,7 @@ bindkey -M vicmd '^g' fzf-cd-widget
 bindkey -M vicmd '^k' end-of-line
 bindkey -M vicmd '^o' c-up-widget
 bindkey -M vicmd '^s' status-widget
+bindkey -M vicmd '^z' zi-widget
 
 # insert
 bindkey -M viins '^]' c-last-widget
@@ -34,3 +35,4 @@ bindkey -M viins '^p' up-history
 bindkey -M viins '^s' status-widget
 bindkey -M viins '^u' kill-whole-line
 bindkey -M viins '^y' yank
+bindkey -M viins '^z' zi-widget
