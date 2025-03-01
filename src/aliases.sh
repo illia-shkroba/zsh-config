@@ -20,7 +20,11 @@ tmuxc() {
 }
 
 v() {
-  nvim --listen "$XDG_CACHE_HOME/nvim/server.pipe" "$@"
+  if [ -e "$XDG_CACHE_HOME/nvim/server.pipe" ]; then
+    nvim "$@"
+  else
+    nvim --listen "$XDG_CACHE_HOME/nvim/server.pipe" "$@"
+  fi
 }
 
 vs() {
