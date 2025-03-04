@@ -15,6 +15,10 @@ c() {
   c_ls
 }
 
+cp-image() {
+  xclip -selection clipboard -target image/png -i "$@"
+}
+
 tmuxc() {
   tmux set-buffer "$@" "$(cat)"
 }
