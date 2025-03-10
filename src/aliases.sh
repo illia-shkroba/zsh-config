@@ -2,7 +2,7 @@
 
 if builtin type eza > /dev/null; then
   c_ls() {
-    eza -lgF --color=auto "$@"
+    eza -lgF --color=auto --icons=auto "$@"
   }
 else
   c_ls() {
