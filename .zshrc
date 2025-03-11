@@ -6,6 +6,7 @@ stty stop undef # Disable ctrl-s to freeze terminal.
 # Options:
 setopt append_history
 setopt autocd
+setopt hist_ignore_space
 setopt interactive_comments
 setopt shwordsplit
 
