@@ -16,7 +16,7 @@ fzf-c-widget() {
     return 0
   fi
   zle push-line # Clear buffer. Auto-restored on next prompt.
-  BUFFER="c -- ${(q)dir:a}"
+  BUFFER=" c -- ${(q)dir:a}"
   zle accept-line
   local ret=$?
   unset dir # ensure this doesn't end up appearing in prompt expansion
@@ -41,7 +41,7 @@ fi
 
 command-widget() {
   zle push-line # Clear buffer. Auto-restored on next prompt.
-  BUFFER="$*"
+  BUFFER=" $*"
   zle accept-line
   local ret=$?
   zle reset-prompt
