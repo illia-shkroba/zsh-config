@@ -50,6 +50,8 @@ unset -f prepend_path
 
 export BROWSER='qutebrowser'
 export EDITOR='nvim'
+export MANPAGER='nvim +Man!'
+export MANWIDTH='999'
 export TERMINAL='st'
 
 if [ "$(tty)" = '/dev/tty1' ]; then
