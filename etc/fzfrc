@@ -8,4 +8,5 @@
 --bind ctrl-k:accept
 --bind ctrl-u:half-page-up
 --bind ctrl-d:half-page-down
+--bind ctrl-g:first
 --bind ctrl-v:"execute(nvim \"$(realpath {})\")"
