@@ -5,14 +5,16 @@ stty stop undef # Disable ctrl-s to freeze terminal.
 
 # Options:
 setopt append_history
-setopt autocd
 setopt hist_ignore_space
+setopt hist_reduce_blanks
+setopt inc_append_history # Useful for `edit-command-line` widget.
 setopt interactive_comments
+setopt rm_star_silent
 setopt shwordsplit
 
 # History in cache directory:
-HISTSIZE=10000000
-SAVEHIST=10000000
+HISTSIZE=1000000000
+SAVEHIST=1000000000
 HISTFILE="$XDG_CACHE_HOME/zsh/history"
 
 # Basic auto/tab complete:

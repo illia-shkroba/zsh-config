@@ -74,4 +74,4 @@ zle -N zi-widget
 
 autoload edit-command-line
 zle -N edit-command-line
-zstyle :zle:edit-command-line editor nvim '+split '"$HISTFILE | normal Gp"
+zstyle :zle:edit-command-line editor nvim '+balt '"$HISTFILE | normal Gp"
