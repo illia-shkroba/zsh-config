@@ -32,7 +32,7 @@ if builtin type eza > /dev/null; then
 else
   FZF_CTRL_F_OPTS='--preview "ls -ldF --color=always {}"'
 fi
-FZF_CTRL_T_COMMAND='find -L -mindepth 1 -maxdepth 1 ! -type d'
+FZF_CTRL_T_COMMAND='find -L -mindepth 1 -maxdepth 1'
 if builtin type fzf-preview.sh > /dev/null; then
   FZF_CTRL_T_OPTS='--preview "fzf-preview.sh {}"'
 else
