@@ -38,7 +38,7 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 
 # Load fzf autocompletion.
 source /usr/share/fzf/completion.zsh 2> /dev/null
-source /usr/share/zsh/plugins/fzf-tab*/fzf-tab.plugin.zsh 2> /dev/null
+source /usr/share/zsh/plugins/fzf-tab/fzf-tab.zsh
 
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2> /dev/null
@@ -47,3 +47,4 @@ fastfetch
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+source <(fzf --zsh)
