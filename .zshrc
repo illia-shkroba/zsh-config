@@ -47,4 +47,5 @@ fastfetch
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+source "$XDG_DATA_HOME/cargo/env"
 source <(fzf --zsh)
