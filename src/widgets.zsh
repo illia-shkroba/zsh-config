@@ -2,7 +2,6 @@
 
 SCRIPT_DIR="$(dirname "$(readlink -e "$0")")"
 
-source /usr/share/fzf/key-bindings.zsh 2> /dev/null
 source "$SCRIPT_DIR/aliases.sh"
 
 fzf-c-widget() {
