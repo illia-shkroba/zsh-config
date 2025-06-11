@@ -34,7 +34,7 @@ source "$ZDOTDIR/src/aliases.sh"
 source "$ZDOTDIR/src/bindings.zsh"
 
 # Load autosuggestions.
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh 2> /dev/null
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 
 # Load fzf autocompletion.
 source /usr/share/fzf/completion.zsh 2> /dev/null
