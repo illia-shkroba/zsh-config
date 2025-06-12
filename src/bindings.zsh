@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
 SCRIPT_DIR="$(dirname "$(readlink -e "$0")")"
+
 source "$SCRIPT_DIR/widgets.zsh"
 
 # menuselect

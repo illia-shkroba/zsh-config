@@ -34,13 +34,10 @@ source "$ZDOTDIR/src/aliases.sh"
 source "$ZDOTDIR/src/bindings.zsh"
 
 # Load autosuggestions.
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Load fzf autocompletion.
 source /usr/share/fzf/completion.zsh 2> /dev/null
-
-# Load syntax highlighting; should be last.
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 
 fastfetch
 
@@ -51,3 +48,6 @@ source "$XDG_DATA_HOME/cargo/env"
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 source /usr/share/zsh/plugins/fzf-tab/fzf-tab.zsh
+
+# Load syntax highlighting; should be last.
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
