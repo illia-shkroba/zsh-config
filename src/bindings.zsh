@@ -4,12 +4,6 @@ SCRIPT_DIR="$(dirname "$(readlink -e "$0")")"
 
 source "$SCRIPT_DIR/widgets.zsh"
 
-# menuselect
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-
 # normal
 bindkey -M vicmd '=' which-command
 bindkey -M vicmd 'U' redo
