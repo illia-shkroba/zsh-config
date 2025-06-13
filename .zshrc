@@ -1,4 +1,4 @@
-# Enable colors and change prompt:
+# Enable colors and set a default prompt when no starship is available:
 autoload -U colors && colors # Load colors
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 stty stop undef # Disable ctrl-s to freeze terminal.
@@ -33,26 +33,21 @@ source "$ZDOTDIR/src/aliases.sh"
 # Load bindings.
 source "$ZDOTDIR/src/bindings.zsh"
 
-# Load autosuggestions.
+# Load plugins.
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Load fzf autocompletion.
-source /usr/share/fzf/completion.zsh 2> /dev/null
+# zsh-history-substring-search should be loaded after zsh-syntax-highlighting.
+HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS='I'
+HISTORY_SUBSTRING_SEARCH_PREFIXED='y'
+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+source /usr/share/zsh/plugins/fzf-tab/fzf-tab.zsh
 
 fastfetch
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 source "$XDG_DATA_HOME/cargo/env"
-
-# Set up fzf key bindings and fuzzy completion
-source <(fzf --zsh)
-source /usr/share/zsh/plugins/fzf-tab/fzf-tab.zsh
-
-# Load syntax highlighting; should be before history substring search.
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# Load history substring search.
-HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS='I'
-HISTORY_SUBSTRING_SEARCH_PREFIXED='y'
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
