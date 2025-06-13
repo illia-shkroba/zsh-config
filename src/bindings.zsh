@@ -16,6 +16,8 @@ bindkey -M vicmd '^k' end-of-line
 bindkey -M vicmd '^o' c-up-widget
 bindkey -M vicmd '^s' status-widget
 bindkey -M vicmd '^x' zi-widget
+bindkey -M vicmd 'j' history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
 
 # insert
 bindkey -M viins '^]' c-last-widget

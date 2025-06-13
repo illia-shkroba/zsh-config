@@ -49,5 +49,10 @@ source "$XDG_DATA_HOME/cargo/env"
 source <(fzf --zsh)
 source /usr/share/zsh/plugins/fzf-tab/fzf-tab.zsh
 
-# Load syntax highlighting; should be last.
+# Load syntax highlighting; should be before history substring search.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Load history substring search.
+HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS='I'
+HISTORY_SUBSTRING_SEARCH_PREFIXED='y'
+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
