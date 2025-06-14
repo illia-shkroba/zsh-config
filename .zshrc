@@ -28,11 +28,6 @@ _comp_options+=(globdots) # Include hidden files.
 bindkey -v
 export KEYTIMEOUT=1
 
-# Load aliases.
-source "$ZDOTDIR/src/aliases.sh"
-# Load bindings.
-source "$ZDOTDIR/src/bindings.zsh"
-
 # Load plugins.
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -45,6 +40,11 @@ source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 source /usr/share/zsh/plugins/fzf-tab/fzf-tab.zsh
+
+# Load aliases.
+source "$ZDOTDIR/src/aliases.sh"
+# Load bindings.
+source "$ZDOTDIR/src/bindings.zsh"
 
 fastfetch
 
