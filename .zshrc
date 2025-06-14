@@ -35,6 +35,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # zsh-history-substring-search should be loaded after zsh-syntax-highlighting.
 HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS='I'
 HISTORY_SUBSTRING_SEARCH_PREFIXED='y'
+HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE='y'
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # Set up fzf key bindings and fuzzy completion
