@@ -33,10 +33,11 @@ else
 fi
 FZF_CTRL_T_COMMAND='find -L -mindepth 1 -maxdepth 1'
 if builtin type fzf-preview.sh > /dev/null; then
-  FZF_CTRL_T_OPTS='--preview "fzf-preview.sh {}"'
+  FZF_CTRL_T_OPTS='--preview "fzf-preview.sh {}" --bind ctrl-e:"execute(nvim <<<{})"'
 else
-  FZF_CTRL_T_OPTS='--preview "bat -n --color=always {}"'
+  FZF_CTRL_T_OPTS='--preview "bat -n --color=always {}" --bind ctrl-e:"execute(nvim <<<{})"'
 fi
+FZF_CTRL_R_OPTS='--bind ctrl-e:"execute(nvim +'"'normal _daW'"' <<<{})"'
 
 command-widget() {
   zle push-line # Clear buffer. Auto-restored on next prompt.
