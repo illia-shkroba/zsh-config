@@ -13,12 +13,11 @@ bindkey -M vicmd '^_' run-help
 bindkey -M vicmd '^e' edit-command-line
 bindkey -M vicmd '^f' fzf-c-widget
 bindkey -M vicmd '^g' fzf-cd-widget
-bindkey -M vicmd '^k' end-of-line
+bindkey -M vicmd '^j' history-substring-search-down
+bindkey -M vicmd '^k' history-substring-search-up
 bindkey -M vicmd '^o' c-up-widget
 bindkey -M vicmd '^s' status-widget
 bindkey -M vicmd '^x' zi-widget
-bindkey -M vicmd 'j' history-substring-search-down
-bindkey -M vicmd 'k' history-substring-search-up
 
 # insert
 bindkey -M viins '^ ' autosuggest-accept
@@ -27,7 +26,8 @@ bindkey -M viins '^_' run-help
 bindkey -M viins '^e' edit-command-line
 bindkey -M viins '^f' fzf-c-widget
 bindkey -M viins '^g' fzf-cd-widget
-bindkey -M viins '^k' end-of-line
+bindkey -M viins '^j' history-substring-search-down
+bindkey -M viins '^k' history-substring-search-up
 bindkey -M viins '^n' down-history
 bindkey -M viins '^o' c-up-widget
 bindkey -M viins '^p' up-history
