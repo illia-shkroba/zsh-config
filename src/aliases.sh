@@ -87,6 +87,7 @@ alias tmux='tmux -u'
 alias trr='transmission-remote'
 alias trs='transmission-show'
 alias vim='nvim'
+alias y='sed "/^$/d" $XDG_DATA_HOME/dict.txt | fzf --ansi --highlight-line --prompt "dict> " --wrap --wrap-sign " ↳ " | tr -d "\n" | clip'
 alias ytfzf='ytfzf --detach --show-thumbnails --async-thumbnails'
 
 # enable color support
