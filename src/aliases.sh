@@ -15,7 +15,11 @@ c() {
   c_ls
 }
 
-cp-image() {
+dump-image() {
+  xclip -selection clipboard -target image/png -o "$@"
+}
+
+load-image() {
   xclip -selection clipboard -target image/png -i "$@"
 }
 
