@@ -10,8 +10,8 @@ bindkey -M vicmd 'U' redo
 bindkey -M vicmd '^ ' autosuggest-execute
 bindkey -M vicmd '^]' c-last-widget
 bindkey -M vicmd '^_' run-help
-bindkey -M vicmd '^e' edit-command-line
-bindkey -M vicmd '^f' fzf-c-widget
+bindkey -M vicmd '^e' fzf-c-widget
+bindkey -M vicmd '^f' edit-command-line
 bindkey -M vicmd '^g' fzf-cd-widget
 bindkey -M vicmd '^j' history-substring-search-down
 bindkey -M vicmd '^k' history-substring-search-up
@@ -24,8 +24,8 @@ bindkey -M vicmd '^x' zi-widget
 bindkey -M viins '^ ' autosuggest-execute
 bindkey -M viins '^]' c-last-widget
 bindkey -M viins '^_' run-help
-bindkey -M viins '^e' edit-command-line
-bindkey -M viins '^f' fzf-c-widget
+bindkey -M viins '^e' fzf-c-widget
+bindkey -M viins '^f' edit-command-line
 bindkey -M viins '^g' fzf-cd-widget
 bindkey -M viins '^j' history-substring-search-down
 bindkey -M viins '^k' history-substring-search-up
