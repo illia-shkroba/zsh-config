@@ -6,6 +6,7 @@ export XDG_STATE_HOME="$HOME/.local/state"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 export ANSIBLE_HOME="$XDG_CACHE_HOME/ansible"
+export ATUIN_NOBIND="true"
 export AZURE_CONFIG_DIR="$XDG_DATA_HOME/azure"
 if [ -f "$XDG_CONFIG_HOME/cabal/config" ]; then
   export CABAL_CONFIG="$XDG_CONFIG_HOME/cabal/config"

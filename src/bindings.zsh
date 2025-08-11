@@ -16,6 +16,7 @@ bindkey -M vicmd '^g' fzf-cd-widget
 bindkey -M vicmd '^j' history-substring-search-down
 bindkey -M vicmd '^k' history-substring-search-up
 bindkey -M vicmd '^o' c-up-widget
+bindkey -M vicmd '^r' history-widget
 bindkey -M vicmd '^s' status-widget
 bindkey -M vicmd '^x' zi-widget
 
@@ -31,6 +32,7 @@ bindkey -M viins '^k' history-substring-search-up
 bindkey -M viins '^n' down-history
 bindkey -M viins '^o' c-up-widget
 bindkey -M viins '^p' up-history
+bindkey -M viins '^r' history-widget
 bindkey -M viins '^s' status-widget
 bindkey -M viins '^u' kill-whole-line
 bindkey -M viins '^x' zi-widget

@@ -49,6 +49,7 @@ source "$ZDOTDIR/src/bindings.zsh"
 
 fastfetch
 
+eval "$(atuin init zsh)"
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 source "$XDG_DATA_HOME/cargo/env"

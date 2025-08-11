@@ -60,6 +60,16 @@ c-last-widget() {
 
 zle -N c-last-widget
 
+history-widget() {
+  zle push-line # Clear buffer. Auto-restored on next prompt.
+  BUFFER="$(atuin history list | fzf --scheme history --accept-nth 2 --delimiter '\t' --ansi --prompt 'global> ')"
+  local ret=$?
+  zle reset-prompt
+  return $ret
+}
+
+zle -N history-widget
+
 status-widget() {
   command-widget "if git rev-parse --is-inside-git-dir > /dev/null 2>&1; then git status; else c_ls -A; fi"
 }
