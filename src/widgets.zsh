@@ -59,6 +59,25 @@ c-last-widget() {
 
 zle -N c-last-widget
 
+cwd-history-widget() {
+  zle push-line # Clear buffer. Auto-restored on next prompt.
+  BUFFER="$(atuin history list --cwd \
+    | fzf \
+      --scheme history \
+      --accept-nth 2 \
+      --no-sort \
+      --delimiter '\t' \
+      --ansi \
+      --tac \
+      --prompt 'cwd> ' \
+      --bind ctrl-e:"execute(nvim +'"'normal $daW_d2aW'"' <<<{})")"
+  local ret=$?
+  zle reset-prompt
+  return $ret
+}
+
+zle -N cwd-history-widget
+
 history-widget() {
   zle push-line # Clear buffer. Auto-restored on next prompt.
   BUFFER="$(atuin history list \
