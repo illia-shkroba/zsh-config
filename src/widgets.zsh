@@ -68,6 +68,9 @@ cwd-history-widget() {
       --no-sort \
       --delimiter '\t' \
       --ansi \
+      --height "${FZF_TMUX_HEIGHT:-40%}" \
+      --min-height 20+ \
+      --border \
       --tac \
       --prompt 'cwd> ' \
       --bind ctrl-f:"execute(nvim +'"'normal $daW_d2aW'"' <<<{})")"
@@ -87,6 +90,9 @@ history-widget() {
       --no-sort \
       --delimiter '\t' \
       --ansi \
+      --height "${FZF_TMUX_HEIGHT:-40%}" \
+      --min-height 20+ \
+      --border \
       --tac \
       --prompt 'global> ' \
       --bind ctrl-f:"execute(nvim +'"'normal $daW_d2aW'"' <<<{})")"
