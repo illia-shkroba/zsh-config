@@ -37,7 +37,6 @@ if builtin type fzf-preview.sh > /dev/null; then
 else
   FZF_CTRL_T_OPTS='--preview "bat -n --color=always {}" --bind ctrl-e:"execute(nvim <<<{})"'
 fi
-FZF_CTRL_R_OPTS='--bind ctrl-e:"execute(nvim +'"'normal _daW'"' <<<{})"'
 
 command-widget() {
   zle push-line # Clear buffer. Auto-restored on next prompt.
@@ -62,7 +61,16 @@ zle -N c-last-widget
 
 history-widget() {
   zle push-line # Clear buffer. Auto-restored on next prompt.
-  BUFFER="$(atuin history list | fzf --scheme history --accept-nth 2 --delimiter '\t' --ansi --prompt 'global> ')"
+  BUFFER="$(atuin history list \
+    | fzf \
+      --scheme history \
+      --accept-nth 2 \
+      --no-sort \
+      --delimiter '\t' \
+      --ansi \
+      --tac \
+      --prompt 'global> ' \
+      --bind ctrl-e:"execute(nvim +'"'normal $daW_d2aW'"' <<<{})")"
   local ret=$?
   zle reset-prompt
   return $ret
