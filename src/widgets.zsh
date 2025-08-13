@@ -60,10 +60,11 @@ c-last-widget() {
 zle -N c-last-widget
 
 cwd-history-widget() {
-  zle push-line # Clear buffer. Auto-restored on next prompt.
-  BUFFER="$(atuin history list --cwd \
+  local query=$LBUFFER
+  LBUFFER="$(atuin history list --cwd \
     | fzf \
       --scheme history \
+      --nth 2 \
       --accept-nth 2 \
       --no-sort \
       --delimiter '\t' \
@@ -71,10 +72,23 @@ cwd-history-widget() {
       --height "${FZF_TMUX_HEIGHT:-40%}" \
       --min-height 20+ \
       --border \
+      --highlight-line \
+      --wrap \
+      --wrap-sign ' ↳ ' \
       --tac \
       --prompt 'cwd> ' \
-      --bind ctrl-f:"execute(nvim +'"'normal $daW_d2aW'"' <<<{})")"
+      "--query=$query" \
+      --bind ctrl-f:"execute(nvim +'"'normal $daW_d2aW'"' <<<{})" \
+      --bind ctrl-r:toggle-sort \
+      --bind ctrl-z:ignore)"
   local ret=$?
+
+  # `fzf` got closed without picking any entry.
+  # Initial query has to be restored.
+  if [ "$ret" -eq 130 ]; then
+    LBUFFER=$query
+  fi
+
   zle reset-prompt
   return $ret
 }
@@ -82,10 +96,11 @@ cwd-history-widget() {
 zle -N cwd-history-widget
 
 history-widget() {
-  zle push-line # Clear buffer. Auto-restored on next prompt.
-  BUFFER="$(atuin history list \
+  local query=$LBUFFER
+  LBUFFER="$(atuin history list \
     | fzf \
       --scheme history \
+      --nth 2 \
       --accept-nth 2 \
       --no-sort \
       --delimiter '\t' \
@@ -93,10 +108,23 @@ history-widget() {
       --height "${FZF_TMUX_HEIGHT:-40%}" \
       --min-height 20+ \
       --border \
+      --highlight-line \
+      --wrap \
+      --wrap-sign ' ↳ ' \
       --tac \
       --prompt 'global> ' \
-      --bind ctrl-f:"execute(nvim +'"'normal $daW_d2aW'"' <<<{})")"
+      "--query=$query" \
+      --bind ctrl-f:"execute(nvim +'"'normal $daW_d2aW'"' <<<{})" \
+      --bind ctrl-r:toggle-sort \
+      --bind ctrl-z:ignore)"
   local ret=$?
+
+  # `fzf` got closed without picking any entry.
+  # Initial query has to be restored.
+  if [ "$ret" -eq 130 ]; then
+    LBUFFER=$query
+  fi
+
   zle reset-prompt
   return $ret
 }
