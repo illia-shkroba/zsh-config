@@ -61,7 +61,7 @@ zle -N c-last-widget
 
 cwd-history-widget() {
   local query=$LBUFFER
-  LBUFFER="$(atuin history list --cwd \
+  LBUFFER="$(atuin search --cwd=. \
     | fzf \
       --scheme history \
       --nth 2 \
@@ -97,7 +97,7 @@ zle -N cwd-history-widget
 
 history-widget() {
   local query=$LBUFFER
-  LBUFFER="$(atuin history list \
+  LBUFFER="$(atuin search \
     | fzf \
       --scheme history \
       --nth 2 \
