@@ -61,13 +61,14 @@ zle -N c-last-widget
 
 cwd-history-widget() {
   local query=$LBUFFER
-  LBUFFER="$(atuin search --cwd=. \
+  LBUFFER="$(atuin search --cwd=. --print0 \
     | fzf \
       --scheme history \
       --nth 2 \
       --accept-nth 2 \
       --no-sort \
       --delimiter '\t' \
+      --read0 \
       --ansi \
       --height "${FZF_TMUX_HEIGHT:-40%}" \
       --min-height 20+ \
@@ -97,13 +98,14 @@ zle -N cwd-history-widget
 
 history-widget() {
   local query=$LBUFFER
-  LBUFFER="$(atuin search \
+  LBUFFER="$(atuin search --print0 \
     | fzf \
       --scheme history \
       --nth 2 \
       --accept-nth 2 \
       --no-sort \
       --delimiter '\t' \
+      --read0 \
       --ansi \
       --height "${FZF_TMUX_HEIGHT:-40%}" \
       --min-height 20+ \
