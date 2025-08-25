@@ -121,8 +121,7 @@ history-widget() {
       --bind ctrl-z:ignore)"
   local ret=$?
 
-  # `fzf` got closed without picking any entry.
-  # Initial query has to be restored.
+  # `fzf` got closed without picking any entry. Initial query has to be restored.
   if [ "$ret" -eq 130 ]; then
     LBUFFER=$query
   fi
@@ -150,4 +149,5 @@ zle -N edit-command-line
 zstyle :zle:edit-command-line editor nvim \
   '+lua require("scratch").shell()' \
   '+0r !atuin search --format "{command}"' \
-  '+normal G"_ddp'
+  '+normal G"_ddp' \
+  '+setlocal filetype=sh'
