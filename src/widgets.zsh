@@ -33,9 +33,9 @@ else
 fi
 FZF_CTRL_T_COMMAND='find -L -mindepth 1 -maxdepth 1'
 if builtin type fzf-preview.sh > /dev/null; then
-  FZF_CTRL_T_OPTS='--preview "fzf-preview.sh {}" --bind ctrl-f:"execute(nvim <<<{})"'
+  FZF_CTRL_T_OPTS='--preview "fzf-preview.sh {}" --bind ctrl-e:"execute(nvim <<<{})"'
 else
-  FZF_CTRL_T_OPTS='--preview "bat -n --color=always {}" --bind ctrl-f:"execute(nvim <<<{})"'
+  FZF_CTRL_T_OPTS='--preview "bat -n --color=always {}" --bind ctrl-e:"execute(nvim <<<{})"'
 fi
 
 command-widget() {
@@ -79,7 +79,7 @@ cwd-history-widget() {
       --tac \
       --prompt 'cwd> ' \
       "--query=$query" \
-      --bind ctrl-f:"execute(nvim +'"'normal $daW_d2aW'"' <<<{})" \
+      --bind ctrl-e:"execute(nvim +'"'normal $daW_d2aW'"' <<<{})" \
       --bind ctrl-r:toggle-sort \
       --bind ctrl-z:ignore)"
   local ret=$?
@@ -116,7 +116,7 @@ history-widget() {
       --tac \
       --prompt 'global> ' \
       "--query=$query" \
-      --bind ctrl-f:"execute(nvim +'"'normal $daW_d2aW'"' <<<{})" \
+      --bind ctrl-e:"execute(nvim +'"'normal $daW_d2aW'"' <<<{})" \
       --bind ctrl-r:toggle-sort \
       --bind ctrl-z:ignore)"
   local ret=$?
