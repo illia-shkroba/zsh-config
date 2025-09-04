@@ -61,25 +61,22 @@ zle -N c-last-widget
 
 cwd-history-widget() {
   local query=$LBUFFER
-  LBUFFER="$(atuin search --cwd=. --print0 \
+  LBUFFER="$(atuin search --cwd=. --print0 --format "{command}" \
     | fzf \
       --scheme history \
-      --nth 2 \
-      --accept-nth 2 \
       --no-sort \
       --delimiter '\t' \
       --read0 \
       --ansi \
       --height "${FZF_TMUX_HEIGHT:-40%}" \
       --min-height 20+ \
-      --border \
       --highlight-line \
       --wrap \
       --wrap-sign ' ↳ ' \
       --tac \
       --prompt 'cwd> ' \
       "--query=$query" \
-      --bind ctrl-v:"execute(nvim +'"'normal $daW_d2aW'"' <<<{})" \
+      --bind ctrl-v:"execute(nvim <<<{})" \
       --bind ctrl-r:toggle-sort \
       --bind ctrl-z:ignore)"
   local ret=$?
@@ -98,25 +95,22 @@ zle -N cwd-history-widget
 
 history-widget() {
   local query=$LBUFFER
-  LBUFFER="$(atuin search --print0 \
+  LBUFFER="$(atuin search --print0 --format "{command}" \
     | fzf \
       --scheme history \
-      --nth 2 \
-      --accept-nth 2 \
       --no-sort \
       --delimiter '\t' \
       --read0 \
       --ansi \
       --height "${FZF_TMUX_HEIGHT:-40%}" \
       --min-height 20+ \
-      --border \
       --highlight-line \
       --wrap \
       --wrap-sign ' ↳ ' \
       --tac \
       --prompt 'global> ' \
       "--query=$query" \
-      --bind ctrl-v:"execute(nvim +'"'normal $daW_d2aW'"' <<<{})" \
+      --bind ctrl-v:"execute(nvim <<<{})" \
       --bind ctrl-r:toggle-sort \
       --bind ctrl-z:ignore)"
   local ret=$?
