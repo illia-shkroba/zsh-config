@@ -144,4 +144,3 @@ zstyle :zle:edit-command-line editor nvim \
   '+lua require("scratch").shell()' \
   '+0r !atuin search --format "{command}"' \
   '+normal G"_ddp' \
-  '+setlocal filetype=sh'
