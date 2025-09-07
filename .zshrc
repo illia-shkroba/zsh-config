@@ -47,8 +47,6 @@ source "$ZDOTDIR/src/aliases.sh"
 # Load bindings.
 source "$ZDOTDIR/src/bindings.zsh"
 
-fastfetch
-
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 source "$XDG_DATA_HOME/cargo/env"
