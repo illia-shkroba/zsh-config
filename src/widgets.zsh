@@ -141,6 +141,5 @@ zle -N zi-widget
 autoload edit-command-line
 zle -N edit-command-line
 zstyle :zle:edit-command-line editor nvim \
-  '+lua require("scratch").shell()' \
-  '+0r !atuin search --format "{command}"' \
+  '+History' \
   '+normal G"_ddp' \
