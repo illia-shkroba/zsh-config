@@ -141,5 +141,6 @@ zle -N zi-widget
 autoload edit-command-line
 zle -N edit-command-line
 zstyle :zle:edit-command-line editor nvim \
+  '+setlocal filetype=sh' \
   '+History' \
-  '+normal G"_ddp' \
+  '+normal G"_ddp'
