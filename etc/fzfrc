@@ -4,6 +4,7 @@
 --color=selected-bg:#45475a
 --multi
 --bind ctrl-space:toggle-all
+--bind ctrl-alt-h:backward-kill-word
 --bind ctrl-s:jump
 --bind ctrl-y:accept
 --bind alt-k:half-page-up
