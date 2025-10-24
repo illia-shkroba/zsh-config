@@ -51,3 +51,6 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 source "$XDG_DATA_HOME/cargo/env"
 eval "$(atuin init zsh)"
+
+# Override `atuin`'s config.
+export ZSH_AUTOSUGGEST_STRATEGY=(history completion)

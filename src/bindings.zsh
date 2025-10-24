@@ -7,7 +7,7 @@ source "$SCRIPT_DIR/widgets.zsh"
 # normal
 bindkey -M vicmd '=' which-command
 bindkey -M vicmd 'U' redo
-bindkey -M vicmd '^ ' autosuggest-execute
+bindkey -M vicmd '^ ' autosuggest-accept
 bindkey -M vicmd '^]' c-last-widget
 bindkey -M vicmd '^_' run-help
 bindkey -M vicmd '^b' cwd-history-widget
@@ -22,7 +22,7 @@ bindkey -M vicmd '^v' edit-command-line
 bindkey -M vicmd '^x' zi-widget
 
 # insert
-bindkey -M viins '^ ' autosuggest-execute
+bindkey -M viins '^ ' autosuggest-accept
 bindkey -M viins '^]' c-last-widget
 bindkey -M viins '^_' run-help
 bindkey -M viins '^b' cwd-history-widget
