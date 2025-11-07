@@ -75,7 +75,7 @@ cwd-history-widget() {
       --wrap-sign ' ↳ ' \
       --tac \
       --prompt 'cwd> ' \
-      "--query=^$query" \
+      "--query=${query:+^$query}" \
       --bind ctrl-v:"execute(nvim <<<{})" \
       --bind ctrl-r:toggle-sort \
       --bind ctrl-z:ignore)"
@@ -109,7 +109,7 @@ history-widget() {
       --wrap-sign ' ↳ ' \
       --tac \
       --prompt 'global> ' \
-      "--query=^$query" \
+      "--query=${query:+^$query}" \
       --bind ctrl-v:"execute(nvim <<<{})" \
       --bind ctrl-r:toggle-sort \
       --bind ctrl-z:ignore)"
