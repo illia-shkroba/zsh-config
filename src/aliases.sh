@@ -27,23 +27,6 @@ tmuxc() {
   tmux set-buffer "$@" "$(cat)"
 }
 
-v() {
-  if [ -e "$XDG_CACHE_HOME/nvim/server.pipe" ]; then
-    nvim "$@"
-  else
-    nvim --listen "$XDG_CACHE_HOME/nvim/server.pipe" "$@"
-  fi
-}
-
-vs() {
-  paths=()
-  while [ "$#" -gt 0 ]; do
-    paths+=("$(realpath "$1")")
-    shift
-  done
-  nvim --server "$XDG_CACHE_HOME/nvim/server.pipe" --remote-tab "${paths[@]}"
-}
-
 aliascp() {
   xclip -selection clipboard << 'EOF'
 c_ls() {
@@ -90,6 +73,7 @@ alias t='tmux -u'
 alias tmux='tmux -u'
 alias trr='transmission-remote'
 alias trs='transmission-show'
+alias v='nvim'
 alias vim='nvim'
 alias y='sed "/^$/d" $XDG_DATA_HOME/dict.txt | fzf --ansi --highlight-line --prompt "dict> " --wrap --wrap-sign " ↳ " | tr -d "\n" | clip'
 alias ytfzf='ytfzf --detach --show-thumbnails --async-thumbnails'
