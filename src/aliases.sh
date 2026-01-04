@@ -59,7 +59,6 @@ EOF
 }
 
 alias clip='xclip -selection clipboard'
-alias config='vim ~/.config/nvim/lua/options.lua'
 alias d='docker'
 alias g='git'
 alias hoogle='hoogle --database ~/.cache/hoogle/database.hoo'
