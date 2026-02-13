@@ -33,9 +33,9 @@ else
 fi
 FZF_CTRL_T_COMMAND='find -L -mindepth 1 -maxdepth 1'
 if builtin type fzf-preview.sh > /dev/null; then
-  FZF_CTRL_T_OPTS='--preview "fzf-preview.sh {}" --bind ctrl-v:"execute(nvim <<<{})"'
+  FZF_CTRL_T_OPTS='--preview "fzf-preview.sh {}" --bind ctrl-v:"execute(nvim \"$(realpath {})\")"'
 else
-  FZF_CTRL_T_OPTS='--preview "bat -n --color=always {}" --bind ctrl-v:"execute(nvim <<<{})"'
+  FZF_CTRL_T_OPTS='--preview "bat -n --color=always {}" --bind ctrl-v:"execute(nvim \"$(realpath {})\")"'
 fi
 
 command-widget() {
