@@ -23,59 +23,17 @@ load-image() {
   xclip -selection clipboard -target image/png -i "$@"
 }
 
-tmuxc() {
-  tmux set-buffer "$@" "$(cat)"
-}
-
-aliascp() {
-  xclip -selection clipboard << 'EOF'
-c_ls() {
-  ls -lF --color=auto "$@"
-}
-
-c() {
-  cd "$@" || return
-  c_ls
-}
-
-v() {
-  if type nvim > /dev/null; then
-    nvim "$@"
-  elif type vim > /dev/null; then
-    vim "$@"
-  elif type vi > /dev/null; then
-    vi "$@"
-  else
-    less "$@"
-  fi
-}
-
-alias d='docker'
-alias g='git'
-alias l='c_ls'
-alias ll='c_ls -A'
-alias m='man'
-EOF
-}
-
 alias clip='xclip -selection clipboard'
 alias d='docker'
 alias g='git'
-alias hoogle='hoogle --database ~/.cache/hoogle/database.hoo'
 alias ipython='ipython --no-banner'
 alias l='c_ls'
 alias ll='c_ls -A'
-alias m='man'
-alias screenkey='screenkey -t 0.5 -s small --opacity 0.3'
 alias sxiv='nsxiv'
 alias t='tmux -u'
 alias tmux='tmux -u'
-alias trr='transmission-remote'
-alias trs='transmission-show'
 alias v='nvim'
 alias vim='nvim'
-alias y='sed "/^$/d" $XDG_DATA_HOME/dict.txt | fzf --ansi --highlight-line --prompt "dict> " --wrap --wrap-sign " ↳ " | tr -d "\n" | clip'
-alias ytfzf='ytfzf --detach --show-thumbnails --async-thumbnails'
 
 # enable color support
 if [ -x /usr/bin/dircolors ]; then
