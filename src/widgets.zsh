@@ -143,4 +143,4 @@ zle -N edit-command-line
 zstyle :zle:edit-command-line editor nvim \
   '+setlocal filetype=sh' \
   '+History' \
-  '+normal G"_ddp'
+  '+normal p'
