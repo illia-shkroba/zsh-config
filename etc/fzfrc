@@ -11,4 +11,5 @@
 --bind alt-j:half-page-down
 --bind alt-g:first
 --bind alt-G:last
+--bind alt-n:"execute-silent(echo -n {} | xclip -selection clipboard)+abort"
 --bind ctrl-v:"execute(nvim \"$(realpath {})\")"
