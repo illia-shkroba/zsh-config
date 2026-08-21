@@ -8,9 +8,10 @@ fzf-c-widget() {
   setopt localoptions pipefail no_aliases 2> /dev/null
   local dir="$(
     FZF_DEFAULT_COMMAND=${FZF_CTRL_F_COMMAND:-} \
-    FZF_DEFAULT_OPTS=$(__fzf_defaults "--reverse --walker=dir,follow,hidden --scheme=path" "${FZF_CTRL_F_OPTS-} +m") \
-    FZF_DEFAULT_OPTS_FILE='' $(__fzfcmd) < /dev/tty)"
-  if [[ -z "$dir" ]]; then
+      FZF_DEFAULT_OPTS=$(__fzf_defaults "--reverse --walker=dir,follow,hidden --scheme=path" "${FZF_CTRL_F_OPTS-} +m") \
+      FZF_DEFAULT_OPTS_FILE='' $(__fzfcmd) < /dev/tty
+  )"
+  if [[ -z $dir ]]; then
     zle redisplay
     return 0
   fi
