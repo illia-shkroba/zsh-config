@@ -59,26 +59,37 @@ c-last-widget() {
 
 zle -N c-last-widget
 
+ATUIN_CWD_HISTORY_COMMAND='atuin search --cwd=. --print0 --format "{command}"'
+ATUIN_HISTORY_COMMAND='atuin search --print0 --format "{command}"'
+
+ATUIN_HISTORY_SWITCH_BIND="alt-s:transform:
+  if [ \"\$FZF_PROMPT\" = 'cwd> ' ]; then
+    echo 'change-prompt(global> )+reload($ATUIN_HISTORY_COMMAND)'
+  else
+    echo 'change-prompt(cwd> )+reload($ATUIN_CWD_HISTORY_COMMAND)'
+  fi"
+
 cwd-history-widget() {
   local query=$LBUFFER
-  LBUFFER="$(atuin search --cwd=. --print0 --format "{command}" \
-    | fzf \
-      --scheme history \
-      --no-sort \
-      --delimiter '\t' \
-      --read0 \
-      --ansi \
-      --height "${FZF_TMUX_HEIGHT:-40%}" \
-      --min-height 20+ \
-      --highlight-line \
-      --wrap \
-      --wrap-sign ' ↳ ' \
-      --tac \
-      --prompt 'cwd> ' \
-      "--query=${query:+^$query }" \
-      --bind ctrl-v:"execute(nvim <<<{})" \
-      --bind ctrl-r:toggle-sort \
-      --bind ctrl-z:ignore)"
+  LBUFFER="$(fzf < /dev/null \
+    --bind "start:reload($ATUIN_CWD_HISTORY_COMMAND)" \
+    --scheme history \
+    --no-sort \
+    --delimiter '\t' \
+    --read0 \
+    --ansi \
+    --height "${FZF_TMUX_HEIGHT:-40%}" \
+    --min-height 20+ \
+    --highlight-line \
+    --wrap \
+    --wrap-sign ' ↳ ' \
+    --tac \
+    --prompt 'cwd> ' \
+    "--query=${query:+^$query }" \
+    --bind ctrl-v:"execute(nvim <<<{})" \
+    --bind ctrl-r:toggle-sort \
+    --bind ctrl-z:ignore \
+    --bind "$ATUIN_HISTORY_SWITCH_BIND")"
   local ret=$?
 
   # `fzf` got closed without picking any entry.
@@ -95,24 +106,25 @@ zle -N cwd-history-widget
 
 history-widget() {
   local query=$LBUFFER
-  LBUFFER="$(atuin search --print0 --format "{command}" \
-    | fzf \
-      --scheme history \
-      --no-sort \
-      --delimiter '\t' \
-      --read0 \
-      --ansi \
-      --height "${FZF_TMUX_HEIGHT:-40%}" \
-      --min-height 20+ \
-      --highlight-line \
-      --wrap \
-      --wrap-sign ' ↳ ' \
-      --tac \
-      --prompt 'global> ' \
-      "--query=${query:+^$query }" \
-      --bind ctrl-v:"execute(nvim <<<{})" \
-      --bind ctrl-r:toggle-sort \
-      --bind ctrl-z:ignore)"
+  LBUFFER="$(fzf < /dev/null \
+    --bind "start:reload($ATUIN_HISTORY_COMMAND)" \
+    --scheme history \
+    --no-sort \
+    --delimiter '\t' \
+    --read0 \
+    --ansi \
+    --height "${FZF_TMUX_HEIGHT:-40%}" \
+    --min-height 20+ \
+    --highlight-line \
+    --wrap \
+    --wrap-sign ' ↳ ' \
+    --tac \
+    --prompt 'global> ' \
+    "--query=${query:+^$query }" \
+    --bind ctrl-v:"execute(nvim <<<{})" \
+    --bind ctrl-r:toggle-sort \
+    --bind ctrl-z:ignore \
+    --bind "$ATUIN_HISTORY_SWITCH_BIND")"
   local ret=$?
 
   # `fzf` got closed without picking any entry. Initial query has to be restored.
